@@ -6,78 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="javascript.js" defer></script>
 </head>
 
 <body>
+    <div id="header">
+        <div id="title">Odin's Library</div>
+    </div>
     <div id="library">
         <div class="book-card">
-            <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjVdFLrBZCCB8n6Z7zvSiwGcTQWla6dvOv4w&s"
-            alt="">
-            <div class="book-details">
-                <div class="book-title">Mediations</div>
-                <div class="book-author">Marcus Aurelius</div>
-                <div class="book-info">
-                    <div class="book-summary">
-                        Marcus Aurelius’ Meditations is a collection of personal
-                        reflections offering timeless Stoic wisdom. It explores
-                        virtue, resilience, and the impermanence of life,
-                        guiding readers toward inner peace, self-discipline, and
-                        navigating challenges with grace and philosophical
-                        clarity.
+            <div>
+                <img class="book-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjVdFLrBZCCB8n6Z7zvSiwGcTQWla6dvOv4w&s"
+                    alt="">
+                <div class="book-details">
+                    <div class="book-title">Mediations</div>
+                    <div class="book-author">Marcus Aurelius</div>
+                    <div class="book-info">
+                        <div class="book-summary">
+                            Marcus Aurelius’ Meditations is a collection of personal
+                            reflections offering timeless Stoic wisdom. It explores
+                            virtue, resilience, and the impermanence of life,
+                            guiding readers toward inner peace, self-discipline, and
+                            navigating challenges with grace and philosophical
+                            clarity.
+                        </div>
+                        <blockquote>"You have power over your mind - not outside
+                            events. Realize this, and you will find strength."
+                        </blockquote>
                     </div>
-                    <blockquote>"You have power over your mind - not outside
-                    events. Realize this, and you will find strength."
-                    </blockquote>
                 </div>
             </div>
-        </div>
-        <div class="book-card">
-            <img src="https://m.media-amazon.com/images/I/81ANaVZk5LL.jpg"
-            alt="">
-            <div class="book-details">
-                <div class="book-title">Atomic Habits</div>
-                <div class="book-author">James Clear</div>
-                <div class="book-info">
-                    <div class="book-summary">
-                        Atomic Habits is a transformative guide to habit
-                        formation. It highlights the power of small, consistent
-                        changes and provides actionable strategies to build good
-                        habits, break bad ones, and create systems for
-                        sustainable personal and professional growth.
-                    </div>
-                    <blockquote>"You do not rise to the level of your goals. You
-                    fall to the level of your systems."
-                    </blockquote>
-                </div>
-            </div>
+            <button class="remove">Remove from Library</button>
         </div>
     </div>
-    <div id="book-form">
-        <div id="form-heading">Don't see a book? Add more here.</div>
-        <div id="form-title">
-            <label for="book-title">Title</label>
-            <input type="text" id="book-title" name="book-title" required>
-        </div>
-        <div id="form-author">
-            <label for="form-author">Author</label>
-            <input type="text" id="book-author" name="book-author" required>
-        </div>
-        <div id="form-url">
-            <label for="book-cover-url">Link Address to Book Cover</label>
-            <input type="text" id="book-cover-url" name="book-cover-url"
-            required>
-        </div>
-        <div id="form-description">
-            <label for="book-description">Your Book Review</label>
-            <textarea name="book-description" id="book-description" rows="8"
-            required>
+    <form id="book-form">
+        <fieldset>
+            <legend id="form-legend">Don't see a book? Add more here.</legend>
+            <div id="form-title">
+                <label for="title-input">* Title</label>
+                <input type="text" id="title-input" name="book-title" required>
+            </div>
+            <div id="form-author">
+                <label for="author-input">* Author</label>
+                <input type="text" id="author-input" name="book-author" required>
+            </div>
+            <div id="form-url">
+                <label for="link-input">Link Address to Book Cover</label>
+                <input type="text" id="link-input" name="book-link">
+            </div>
+            <div id="form-summary">
+                <label for="summary-input">* Book Summary</label>
+                <textarea id="summary-input" name="book-summary" rows="8" required></textarea>
+            </div>
+            <div id="form-quote">
+                <label for="quote-input">* Favorite Quote From Book</label>
+                <textarea name="book-quote" id="quote-input" rows="5" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </fieldset>
 
-            </textarea>
-        </div>
-    </div>
+    </form>
 </body>
 
 </html>
