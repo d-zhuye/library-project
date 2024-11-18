@@ -9,12 +9,12 @@ function Book(title, author, link, summary, quote) {
     this.quote = quote;
 }
 
-Book.prototype.addBookToLibrary = function() {
-    appendToLibrary(this.title, this.author, this.link, this.summary, this.quote);
+Book.prototype.addToLibraryArray = function() {
     myLibrary.push(this);
+    updateLibrary();
 }
 
-function appendToLibrary(title, author, link, summary, quote) {
+function renderBook(title, author, link, summary, quote) {
     const library = document.querySelector("#library");
 
     let bookCard = document.createElement("div");
@@ -79,9 +79,34 @@ const atomicHabits = new Book(
     "You do not rise to the level of your goals. You fall to the level of your systems."
 )
 
-meditations.addBookToLibrary();
-theAlchemist.addBookToLibrary();
-atomicHabits.addBookToLibrary();
+meditations.addToLibraryArray();
+theAlchemist.addToLibraryArray();
+atomicHabits.addToLibraryArray();
+console.log(myLibrary);
+
+
+function updateLibrary() {
+    const library = document.getElementById("library");
+    library.textContent = "";
+
+    myLibrary.forEach((book,index) => {
+        renderBook(book.title, book.author, book.link, book.summary, book.quote);
+
+        const removeButtons = library.querySelectorAll(".remove");
+        removeButtons.forEach((button,i) => {
+            if (i === index) {
+                button.addEventListener("click", () => removeBook(index));
+            }
+        })
+    })
+}
+
+
+function removeBook(index) {
+    myLibrary.splice(index,1);
+    updateLibrary();
+}
+
 
 const form = document.getElementById("book-form");
 
@@ -100,15 +125,3 @@ form.addEventListener("submit", (event) => {
     
     form.reset();
 });
-
-let remove = document.querySelectorAll(".remove");
-
-remove.forEach( () => {
-    remove.addEventListener("click", () => {
-        removeBook(index);
-    })
-});
-
-function removeBook(){
-
-}
